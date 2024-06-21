@@ -1,2 +1,5 @@
 /Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/App.java
 /Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/db/DatabaseConnection.java
+/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/db/Drug.java
+/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/db/DrugDAO.java
+/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/db/DrugDAOTest.java
