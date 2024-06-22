@@ -1,4 +1,4 @@
-package com.pharmacy.management.ui;
+package com.pharmacy.ui;
 
 import com.pharmacy.management.model.Customers;
 import com.pharmacy.management.service.CustomersService;
