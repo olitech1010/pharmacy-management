@@ -7,24 +7,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PurchaseHistoryDAO {
 
     public void addPurchaseHistory(PurchaseHistory purchaseHistory) {
-        String query = "INSERT INTO PurchaseHistory (purchaseId, drugId, purchaseDate, buyerId, quantityPurchased, totalAmount) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO PurchaseHistory (drugId, customerId, purchaseDate, quantity, totalAmount) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setInt(1, purchaseHistory.getPurchaseId());
-            stmt.setInt(2, purchaseHistory.getDrugId());
+            stmt.setInt(1, purchaseHistory.getDrugId());
+            stmt.setInt(2, purchaseHistory.getCustomerId());
             stmt.setTimestamp(3, purchaseHistory.getPurchaseDate());
-            stmt.setInt(4, purchaseHistory.getBuyerId());
-            stmt.setInt(5, purchaseHistory.getQuantityPurchased());
-            stmt.setDouble(6, purchaseHistory.getTotalAmount());
+            stmt.setInt(4, purchaseHistory.getQuantity());
+            stmt.setDouble(5, purchaseHistory.getTotalAmount());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -33,8 +32,8 @@ public class PurchaseHistoryDAO {
     }
 
     public PurchaseHistory getPurchaseHistory(int purchaseId) {
-        PurchaseHistory purchaseHistory = null;
         String query = "SELECT * FROM PurchaseHistory WHERE purchaseId = ?";
+        PurchaseHistory purchaseHistory = null;
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -46,9 +45,9 @@ public class PurchaseHistoryDAO {
                 purchaseHistory = new PurchaseHistory(
                         rs.getInt("purchaseId"),
                         rs.getInt("drugId"),
+                        rs.getInt("customerId"),
                         rs.getTimestamp("purchaseDate"),
-                        rs.getInt("buyerId"),
-                        rs.getInt("quantityPurchased"),
+                        rs.getInt("quantity"),
                         rs.getDouble("totalAmount")
                 );
             }
@@ -60,8 +59,8 @@ public class PurchaseHistoryDAO {
     }
 
     public List<PurchaseHistory> getAllPurchaseHistory() {
-        List<PurchaseHistory> purchaseHistories = new ArrayList<>();
         String query = "SELECT * FROM PurchaseHistory";
+        List<PurchaseHistory> purchaseHistoryList = new ArrayList<>();
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -71,31 +70,30 @@ public class PurchaseHistoryDAO {
                 PurchaseHistory purchaseHistory = new PurchaseHistory(
                         rs.getInt("purchaseId"),
                         rs.getInt("drugId"),
+                        rs.getInt("customerId"),
                         rs.getTimestamp("purchaseDate"),
-                        rs.getInt("buyerId"),
-                        rs.getInt("quantityPurchased"),
+                        rs.getInt("quantity"),
                         rs.getDouble("totalAmount")
                 );
-                purchaseHistories.add(purchaseHistory);
+                purchaseHistoryList.add(purchaseHistory);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return purchaseHistories;
+        return purchaseHistoryList;
     }
 
     public void updatePurchaseHistory(PurchaseHistory purchaseHistory) {
-        String query = "UPDATE PurchaseHistory SET drugId = ?, purchaseDate = ?, buyerId = ?, quantityPurchased = ?, totalAmount = ? " +
-                "WHERE purchaseId = ?";
+        String query = "UPDATE PurchaseHistory SET drugId = ?, customerId = ?, purchaseDate = ?, quantity = ?, totalAmount = ? WHERE purchaseId = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, purchaseHistory.getDrugId());
-            stmt.setTimestamp(2, purchaseHistory.getPurchaseDate());
-            stmt.setInt(3, purchaseHistory.getBuyerId());
-            stmt.setInt(4, purchaseHistory.getQuantityPurchased());
+            stmt.setInt(2, purchaseHistory.getCustomerId());
+            stmt.setTimestamp(3, purchaseHistory.getPurchaseDate());
+            stmt.setInt(4, purchaseHistory.getQuantity());
             stmt.setDouble(5, purchaseHistory.getTotalAmount());
             stmt.setInt(6, purchaseHistory.getPurchaseId());
 
@@ -116,89 +114,5 @@ public class PurchaseHistoryDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public List<PurchaseHistory> getPurchaseHistoryByDrug(int drugId) {
-        List<PurchaseHistory> purchaseHistories = new ArrayList<>();
-        String query = "SELECT * FROM PurchaseHistory WHERE drugId = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setInt(1, drugId);
-            ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                PurchaseHistory purchaseHistory = new PurchaseHistory(
-                        rs.getInt("purchaseId"),
-                        rs.getInt("drugId"),
-                        rs.getTimestamp("purchaseDate"),
-                        rs.getInt("buyerId"),
-                        rs.getInt("quantityPurchased"),
-                        rs.getDouble("totalAmount")
-                );
-                purchaseHistories.add(purchaseHistory);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return purchaseHistories;
-    }
-
-    public List<PurchaseHistory> getPurchaseHistoryByBuyer(int buyerId) {
-        List<PurchaseHistory> purchaseHistories = new ArrayList<>();
-        String query = "SELECT * FROM PurchaseHistory WHERE buyerId = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setInt(1, buyerId);
-            ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                PurchaseHistory purchaseHistory = new PurchaseHistory(
-                        rs.getInt("purchaseId"),
-                        rs.getInt("drugId"),
-                        rs.getTimestamp("purchaseDate"),
-                        rs.getInt("buyerId"),
-                        rs.getInt("quantityPurchased"),
-                        rs.getDouble("totalAmount")
-                );
-                purchaseHistories.add(purchaseHistory);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return purchaseHistories;
-    }
-
-    public List<PurchaseHistory> getPurchaseHistoryByDate(String date) {
-        List<PurchaseHistory> purchaseHistories = new ArrayList<>();
-        String query = "SELECT * FROM PurchaseHistory WHERE DATE(purchaseDate) = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, date);
-            ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                PurchaseHistory purchaseHistory = new PurchaseHistory(
-                        rs.getInt("purchaseId"),
-                        rs.getInt("drugId"),
-                        rs.getTimestamp("purchaseDate"),
-                        rs.getInt("buyerId"),
-                        rs.getInt("quantityPurchased"),
-                        rs.getDouble("totalAmount")
-                );
-                purchaseHistories.add(purchaseHistory);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return purchaseHistories;
     }
 }
