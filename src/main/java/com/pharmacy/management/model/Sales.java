@@ -6,59 +6,57 @@ public class Sales {
     private int saleId;
     private int drugId;
     private Timestamp saleDate;
-    private int quantitySold;
-    private double totalAmount;
+    private int quantity;
 
-    // Constructors
-    public Sales() {
-    }
-
-    public Sales(int saleId, int drugId, Timestamp saleDate, int quantitySold, double totalAmount) {
+    // Constructor
+    public Sales(int saleId, int drugId, Timestamp saleDate, int quantity) {
         this.saleId = saleId;
         this.drugId = drugId;
         this.saleDate = saleDate;
-        this.quantitySold = quantitySold;
-        this.totalAmount = totalAmount;
+        this.quantity = quantity;
     }
 
-    // Getters and setters
+    // Getters and Setters
     public int getSaleId() {
         return saleId;
     }
-    
+
     public void setSaleId(int saleId) {
         this.saleId = saleId;
     }
-    
+
     public int getDrugId() {
         return drugId;
     }
-    
+
     public void setDrugId(int drugId) {
         this.drugId = drugId;
     }
-    
+
     public Timestamp getSaleDate() {
         return saleDate;
     }
-    
+
     public void setSaleDate(Timestamp saleDate) {
         this.saleDate = saleDate;
     }
-    
-    public int getQuantitySold() {
-        return quantitySold;
+
+    public int getQuantity() {
+        return quantity;
     }
-    
-    public void setQuantitySold(int quantitySold) {
-        this.quantitySold = quantitySold;
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-    
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-    
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+
+    // toString method for easy debugging and logging
+    @Override
+    public String toString() {
+        return "Sales{" +
+                "saleId=" + saleId +
+                ", drugId=" + drugId +
+                ", saleDate=" + saleDate +
+                ", quantity=" + quantity +
+                '}';
     }
 }
