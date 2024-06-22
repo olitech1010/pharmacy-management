@@ -1,36 +1,42 @@
 package com.pharmacy.management.ui;
 
+import com.pharmacy.management.model.PurchaseHistory;
 import com.pharmacy.management.service.PurchaseHistoryService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 public class PurchaseHistoryPanel extends JPanel {
     private PurchaseHistoryService purchaseHistoryService;
-    
-    private JTextField purchaseIdField;
+
     private JTextField drugIdField;
-    private JTextField customerIdField;
+    private JTextField supplierIdField;
+    private JTextField purchaseDateField;
     private JTextField quantityField;
+    private JTextField amountField;
 
     public PurchaseHistoryPanel(PurchaseHistoryService purchaseHistoryService) {
         this.purchaseHistoryService = purchaseHistoryService;
 
-        setLayout(new GridLayout(5, 2));
-
-        JLabel purchaseIdLabel = new JLabel("Purchase ID:");
-        purchaseIdField = new JTextField();
+        setLayout(new GridLayout(6, 2));
 
         JLabel drugIdLabel = new JLabel("Drug ID:");
         drugIdField = new JTextField();
 
-        JLabel customerIdLabel = new JLabel("Customer ID:");
-        customerIdField = new JTextField();
+        JLabel supplierIdLabel = new JLabel("Supplier ID:");
+        supplierIdField = new JTextField();
+
+        JLabel purchaseDateLabel = new JLabel("Purchase Date (YYYY-MM-DD):");
+        purchaseDateField = new JTextField();
 
         JLabel quantityLabel = new JLabel("Quantity:");
         quantityField = new JTextField();
+
+        JLabel amountLabel = new JLabel("Amount:");
+        amountField = new JTextField();
 
         JButton addButton = new JButton("Add Purchase");
         addButton.addActionListener(new ActionListener() {
@@ -40,24 +46,34 @@ public class PurchaseHistoryPanel extends JPanel {
             }
         });
 
-        add(purchaseIdLabel);
-        add(purchaseIdField);
         add(drugIdLabel);
         add(drugIdField);
-        add(customerIdLabel);
-        add(customerIdField);
+        add(supplierIdLabel);
+        add(supplierIdField);
+        add(purchaseDateLabel);
+        add(purchaseDateField);
         add(quantityLabel);
         add(quantityField);
+        add(amountLabel);
+        add(amountField);
         add(addButton);
     }
 
     private void addPurchase() {
-        int purchaseId = Integer.parseInt(purchaseIdField.getText());
         int drugId = Integer.parseInt(drugIdField.getText());
-        int customerId = Integer.parseInt(customerIdField.getText());
+        int supplierId = Integer.parseInt(supplierIdField.getText());
+        Date purchaseDate = Date.valueOf(purchaseDateField.getText()); // Assuming correct date format
         int quantity = Integer.parseInt(quantityField.getText());
+        double amount = Double.parseDouble(amountField.getText());
 
-        purchaseHistoryService.addPurchaseHistory(purchaseId, drugId, customerId, quantity);
+        PurchaseHistory purchase = new PurchaseHistory();
+        purchase.setDrugId(drugId);
+        purchase.setSupplierId(supplierId);
+        purchase.setPurchaseDate(purchaseDate);
+        purchase.setQuantity(quantity);
+        purchase.setAmount(amount);
+
+        purchaseHistoryService.addPurchase(purchase);
 
         JOptionPane.showMessageDialog(this, "Purchase added successfully!");
     }

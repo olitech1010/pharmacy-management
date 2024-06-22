@@ -7,23 +7,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PurchaseHistoryDAO {
 
-    public void addPurchaseHistory(PurchaseHistory purchaseHistory) {
-        String query = "INSERT INTO PurchaseHistory (drugId, customerId, purchaseDate, quantity, totalAmount) VALUES (?, ?, ?, ?, ?)";
+    public void addPurchase(PurchaseHistory purchase) {
+        String query = "INSERT INTO PurchaseHistory (drugId, supplierId, purchaseDate, quantity, amount) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setInt(1, purchaseHistory.getDrugId());
-            stmt.setInt(2, purchaseHistory.getCustomerId());
-            stmt.setTimestamp(3, purchaseHistory.getPurchaseDate());
-            stmt.setInt(4, purchaseHistory.getQuantity());
-            stmt.setDouble(5, purchaseHistory.getTotalAmount());
+            stmt.setInt(1, purchase.getDrugId());
+            stmt.setInt(2, purchase.getSupplierId());
+            stmt.setDate(3, purchase.getPurchaseDate());
+            stmt.setInt(4, purchase.getQuantity());
+            stmt.setDouble(5, purchase.getAmount());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -31,71 +30,44 @@ public class PurchaseHistoryDAO {
         }
     }
 
-    public PurchaseHistory getPurchaseHistory(int purchaseId) {
-        String query = "SELECT * FROM PurchaseHistory WHERE purchaseId = ?";
-        PurchaseHistory purchaseHistory = null;
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setInt(1, purchaseId);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                purchaseHistory = new PurchaseHistory(
-                        rs.getInt("purchaseId"),
-                        rs.getInt("drugId"),
-                        rs.getInt("customerId"),
-                        rs.getTimestamp("purchaseDate"),
-                        rs.getInt("quantity"),
-                        rs.getDouble("totalAmount")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return purchaseHistory;
-    }
-
-    public List<PurchaseHistory> getAllPurchaseHistory() {
+    public List<PurchaseHistory> getAllPurchases() {
         String query = "SELECT * FROM PurchaseHistory";
-        List<PurchaseHistory> purchaseHistoryList = new ArrayList<>();
+        List<PurchaseHistory> purchaseList = new ArrayList<>();
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                PurchaseHistory purchaseHistory = new PurchaseHistory(
-                        rs.getInt("purchaseId"),
-                        rs.getInt("drugId"),
-                        rs.getInt("customerId"),
-                        rs.getTimestamp("purchaseDate"),
-                        rs.getInt("quantity"),
-                        rs.getDouble("totalAmount")
-                );
-                purchaseHistoryList.add(purchaseHistory);
+                PurchaseHistory purchase = new PurchaseHistory();
+                purchase.setPurchaseId(rs.getInt("purchaseId"));
+                purchase.setDrugId(rs.getInt("drugId"));
+                purchase.setSupplierId(rs.getInt("supplierId"));
+                purchase.setPurchaseDate(rs.getDate("purchaseDate"));
+                purchase.setQuantity(rs.getInt("quantity"));
+                purchase.setAmount(rs.getDouble("amount"));
+                // Set other properties if needed
+                purchaseList.add(purchase);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return purchaseHistoryList;
+        return purchaseList;
     }
 
-    public void updatePurchaseHistory(PurchaseHistory purchaseHistory) {
-        String query = "UPDATE PurchaseHistory SET drugId = ?, customerId = ?, purchaseDate = ?, quantity = ?, totalAmount = ? WHERE purchaseId = ?";
+    public void updatePurchase(PurchaseHistory purchase) {
+        String query = "UPDATE PurchaseHistory SET drugId = ?, supplierId = ?, purchaseDate = ?, quantity = ?, amount = ? WHERE purchaseId = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setInt(1, purchaseHistory.getDrugId());
-            stmt.setInt(2, purchaseHistory.getCustomerId());
-            stmt.setTimestamp(3, purchaseHistory.getPurchaseDate());
-            stmt.setInt(4, purchaseHistory.getQuantity());
-            stmt.setDouble(5, purchaseHistory.getTotalAmount());
-            stmt.setInt(6, purchaseHistory.getPurchaseId());
+            stmt.setInt(1, purchase.getDrugId());
+            stmt.setInt(2, purchase.getSupplierId());
+            stmt.setDate(3, purchase.getPurchaseDate());
+            stmt.setInt(4, purchase.getQuantity());
+            stmt.setDouble(5, purchase.getAmount());
+            stmt.setInt(6, purchase.getPurchaseId());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -103,7 +75,7 @@ public class PurchaseHistoryDAO {
         }
     }
 
-    public void deletePurchaseHistory(int purchaseId) {
+    public void deletePurchase(int purchaseId) {
         String query = "DELETE FROM PurchaseHistory WHERE purchaseId = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();

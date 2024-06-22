@@ -1,84 +1,61 @@
 package com.pharmacy.management.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class PurchaseHistory {
     private int purchaseId;
     private int drugId;
-    private int customerId;
-    private Timestamp purchaseDate;
+    private int supplierId;
+    private Date purchaseDate;
     private int quantity;
-    private double totalAmount;
-
-    // Constructor
-    public PurchaseHistory(int purchaseId, int drugId, int customerId, Timestamp purchaseDate, int quantity, double totalAmount) {
-        this.purchaseId = purchaseId;
-        this.drugId = drugId;
-        this.customerId = customerId;
-        this.purchaseDate = purchaseDate;
-        this.quantity = quantity;
-        this.totalAmount = totalAmount;
-    }
+    private double amount;
 
     // Getters and Setters
     public int getPurchaseId() {
         return purchaseId;
     }
-
+    
     public void setPurchaseId(int purchaseId) {
         this.purchaseId = purchaseId;
     }
-
+    
     public int getDrugId() {
         return drugId;
     }
-
+    
     public void setDrugId(int drugId) {
         this.drugId = drugId;
     }
-
-    public int getCustomerId() {
-        return customerId;
+    
+    public int getSupplierId() {
+        return supplierId;
     }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
-
-    public Timestamp getPurchaseDate() {
+    
+    public Date getPurchaseDate() {
         return purchaseDate;
     }
-
-    public void setPurchaseDate(Timestamp purchaseDate) {
+    
+    public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
-
+    
     public int getQuantity() {
         return quantity;
     }
-
+    
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-    public double getTotalAmount() {
-        return totalAmount;
+    
+    public double getAmount() {
+        return amount;
     }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    // toString method for easy debugging and logging
-    @Override
-    public String toString() {
-        return "PurchaseHistory{" +
-                "purchaseId=" + purchaseId +
-                ", drugId=" + drugId +
-                ", customerId=" + customerId +
-                ", purchaseDate=" + purchaseDate +
-                ", quantity=" + quantity +
-                ", totalAmount=" + totalAmount +
-                '}';
+    
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 }
