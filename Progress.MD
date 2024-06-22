@@ -188,18 +188,21 @@ The goal of this project is to develop a comprehensive Pharmacy Management Syste
     }
     ```
 
-#### Progress So Far
-- **Database and Tables**: Created and connected.
-- **Project Structure**: Maven project setup with a structured directory.
-- **Database Connection**: Implemented.
-- **Models**: Created `Drug`, `Sale`, and `PurchaseHistory` classes.
-- **DAO Classes**: Implemented `DrugDAO`, `SalesDAO`, and `PurchaseHistoryDAO` with full CRUD operations.
+ what we've accomplished so far and what's left in the project
 
-#### Next Steps
-- Implement DAO classes for `Suppliers` and `Customers`.
-- Develop service classes for business logic.
-- Create a user-friendly GUI using Java Swing.
-- Test all functionalities thoroughly.
-- Document the code and analyze the performance of the algorithms using Big O and Omega Notation.
-- Generate reports for various operations in the system.
+### Completed Tasks:
+1. **Database Setup:** Created tables for `Drugs`, `Customers`, `Suppliers`, `Sales`, and `PurchaseHistory`.
+2. **Model Classes:** Implemented Java classes representing the database tables: `Drug`, `Customer`, `Supplier`, `Sales`, and `PurchaseHistory`.
+3. **DAO Classes:** Developed Data Access Object (DAO) classes for database operations: `DrugDAO`, `CustomerDAO`, `SupplierDAO`, `SalesDAO`, and `PurchaseHistoryDAO`.
+4. **Service Classes:** Implemented business logic in service classes: `DrugService`, `CustomerService`, `SupplierService`, `SalesService`, and `PurchaseHistoryService`.
+5. **GUI Panels:** Created GUI panels for managing data: `DrugPanel`, `CustomerPanel`, `SupplierPanel`, `SalesPanel`, and `PurchaseHistoryPanel`.
+
+### Remaining Tasks:
+1. **Implement Main Application Class:** Create the main application class to run the project.
+2. **Balance Stock:** Implement logic to maintain the balance between too high and too low stock.
+3. **Generate Reports:** Develop functionality to generate reports on data structure implementation and sales/purchases.
+4. **View Reports:** Allow users to view generated reports.
+5. **Performance Analysis:** Analyze and report on the performance of algorithms using Big O Notation and Omega Notation.
+6. **Documentation:** Document all sections of the code for clarity and maintainability.
+7. **Design Efficient Algorithms:** Design and implement suitable algorithms to support the project's functionalities efficiently.
 
