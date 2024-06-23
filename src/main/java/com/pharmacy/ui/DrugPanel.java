@@ -1,75 +1,86 @@
 package com.pharmacy.ui;
 
 import com.pharmacy.management.service.DrugService;
-import com.pharmacy.management.model.Drug;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class DrugPanel extends JPanel {
     private DrugService drugService;
-    
-    private JTextField drugIdField;
+
     private JTextField drugNameField;
-    private JTextField quantityField;
-    private JTextField priceField;
-    private JTextField supplierIdField;
+    private JTextField drugQuantityField;
+    private JTextField drugPriceField;
 
     public DrugPanel(DrugService drugService) {
         this.drugService = drugService;
+        setLayout(new GridLayout(4, 2));
 
-        setLayout(new GridLayout(6, 2));
-
-        JLabel drugIdLabel = new JLabel("Drug ID:");
-        drugIdField = new JTextField();
-
-        JLabel drugNameLabel = new JLabel("Drug Name:");
+        // Initialize components
+        JLabel nameLabel = new JLabel("Drug Name:");
         drugNameField = new JTextField();
-
         JLabel quantityLabel = new JLabel("Quantity:");
-        quantityField = new JTextField();
-
+        drugQuantityField = new JTextField();
         JLabel priceLabel = new JLabel("Price:");
-        priceField = new JTextField();
-
-        JLabel supplierIdLabel = new JLabel("Supplier ID:");
-        supplierIdField = new JTextField();
-
+        drugPriceField = new JTextField();
         JButton addButton = new JButton("Add Drug");
+
+        // Add components to the panel
+        add(nameLabel);
+        add(drugNameField);
+        add(quantityLabel);
+        add(drugQuantityField);
+        add(priceLabel);
+        add(drugPriceField);
+        add(new JLabel()); // Empty cell
+        add(addButton);
+
+        // Add action listener to the button
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDrug();
             }
         });
-
-        add(drugIdLabel);
-        add(drugIdField);
-        add(drugNameLabel);
-        add(drugNameField);
-        add(quantityLabel);
-        add(quantityField);
-        add(priceLabel);
-        add(priceField);
-        add(supplierIdLabel);
-        add(supplierIdField);
-        add(addButton);
     }
 
     private void addDrug() {
-        int drugId = Integer.parseInt(drugIdField.getText());
-        String drugName = drugNameField.getText();
-        int quantity = Integer.parseInt(quantityField.getText());
-        double price = Double.parseDouble(priceField.getText());
-        int supplierId = Integer.parseInt(supplierIdField.getText());
+        String name = drugNameField.getText();
+        String quantityText = drugQuantityField.getText();
+        String priceText = drugPriceField.getText();
 
-        Drug drug = new Drug(drugId, drugName, quantity, price, supplierId);
-        drugService.addDrug(drug);
+        // Validate inputs
+        if (name.isEmpty() || quantityText.isEmpty() || priceText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-        JOptionPane.showMessageDialog(this, "Drug added successfully!");
+        int quantity;
+        double price;
+
+        try {
+            quantity = Integer.parseInt(quantityText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid quantity. Please enter a numeric value.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            price = Double.parseDouble(priceText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid price. Please enter a numeric value.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Add drug using the service
+        drugService.addDrug(name, quantity, price);
+        JOptionPane.showMessageDialog(this, "Drug added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        // Clear fields after successful addition
+        drugNameField.setText("");
+        drugQuantityField.setText("");
+        drugPriceField.setText("");
     }
 }
