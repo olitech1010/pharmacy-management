@@ -1,93 +1,50 @@
 package com.pharmacy.management;
 
-import com.pharmacy.management.service.*;
-import com.pharmacy.ui.*;
+import com.pharmacy.management.service.DrugService;
+import com.pharmacy.management.service.UserService;
+import com.pharmacy.ui.DrugPanel;
+import com.pharmacy.ui.LoginPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PharmacyApp extends JFrame {
-
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
     private DrugService drugService;
-    private SuppliersService supplierService;
-    private CustomersService customerService;
-    private SalesService salesService;
-    private PurchaseHistoryService purchaseHistoryService;
+    private UserService userService;
 
     public PharmacyApp() {
-        // Initialize the services
         drugService = new DrugService();
-        supplierService = new SuppliersService();
-        customerService = new CustomersService();
-        salesService = new SalesService();
-        purchaseHistoryService = new PurchaseHistoryService();
+        userService = new UserService();
 
-        // Set up the main window
         setTitle("Pharmacy Management System");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
 
-        // Create the main panel to hold content
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        setContentPane(mainPanel);
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
 
-        // Create a navigation panel
-        JPanel navigationPanel = createNavigationPanel();
-        mainPanel.add(navigationPanel, BorderLayout.NORTH);
+        // Initialize panels
+        LoginPanel loginPanel = new LoginPanel(userService, cardLayout, mainPanel);
+        DrugPanel drugPanel = new DrugPanel(drugService);
 
-        // Create a content panel to display different views
-        JPanel contentPanel = new JPanel(new CardLayout());
-        mainPanel.add(contentPanel, BorderLayout.CENTER);
+        // Add panels to main panel with card layout
+        mainPanel.add(loginPanel, "login");
+        mainPanel.add(drugPanel, "drug");
 
-        // Add different panels for drug, supplier, customer, sales, and purchase history
-        contentPanel.add(new DrugPanel(drugService), "DrugPanel");
-        contentPanel.add(new SuppliersPanel(supplierService), "SupplierPanel");
-        contentPanel.add(new CustomersPanel(customerService), "CustomerPanel");
-        contentPanel.add(new SalesPanel(salesService), "SalesPanel");
-        contentPanel.add(new PurchaseHistoryPanel(purchaseHistoryService), "PurchaseHistoryPanel");
-    }
+        // Add main panel to frame
+        add(mainPanel);
 
-    // Helper method to create the navigation panel with buttons
-    private JPanel createNavigationPanel() {
-        JPanel navigationPanel = new JPanel(new GridLayout(1, 5));
-
-        JButton drugButton = createNavigationButton("Drugs", "DrugPanel");
-        JButton supplierButton = createNavigationButton("Suppliers", "SupplierPanel");
-        JButton customerButton = createNavigationButton("Customers", "CustomerPanel");
-        JButton salesButton = createNavigationButton("Sales", "SalesPanel");
-        JButton purchaseHistoryButton = createNavigationButton("Purchase History", "PurchaseHistoryPanel");
-
-        navigationPanel.add(drugButton);
-        navigationPanel.add(supplierButton);
-        navigationPanel.add(customerButton);
-        navigationPanel.add(salesButton);
-        navigationPanel.add(purchaseHistoryButton);
-
-        return navigationPanel;
-    }
-
-    // Helper method to create navigation buttons
-    private JButton createNavigationButton(String buttonText, String panelName) {
-        JButton button = new JButton(buttonText);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) getContentPane().getLayout();
-                cl.show(getContentPane(), panelName);
-            }
-        });
-        return button;
+        // Show the login panel initially
+        cardLayout.show(mainPanel, "login");
     }
 
     public static void main(String[] args) {
-        // Run the GUI on the Event Dispatch Thread
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                PharmacyApp app = new PharmacyApp();
-                app.setVisible(true);
+                new PharmacyApp().setVisible(true);
             }
         });
     }
