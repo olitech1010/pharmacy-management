@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+//import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class PurchaseHistoryPanel extends JPanel {
     private PurchaseHistoryService purchaseHistoryService;
