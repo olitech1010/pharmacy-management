@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
-//import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class SalesPanel extends JPanel {
@@ -75,7 +74,7 @@ public class SalesPanel extends JPanel {
         sale.setQuantity(quantity);
         sale.setAmount(amount);
 
-        salesService.addSale(sale);
+        salesService.addSale(drugId, customerId, salesDate, quantity, amount);
 
         JOptionPane.showMessageDialog(this, "Sale added successfully!");
     }

@@ -1,5 +1,8 @@
 com/pharmacy/ui/PurchaseHistoryPanel$1.class
+com/pharmacy/management/PharmacyApp$3.class
+com/pharmacy/ui/LoginPanel$1.class
 com/pharmacy/management/PharmacyApp$1.class
+com/pharmacy/management/service/UserService.class
 com/pharmacy/management/App.class
 com/pharmacy/management/service/SalesService.class
 com/pharmacy/ui/SalesPanel$1.class
@@ -7,6 +10,7 @@ com/pharmacy/management/dao/CustomersDAO.class
 com/pharmacy/management/service/DrugService.class
 com/pharmacy/ui/DrugPanel.class
 com/pharmacy/management/dao/SuppliersDAO.class
+com/pharmacy/management/model/User.class
 com/pharmacy/management/service/CustomersService.class
 com/pharmacy/management/service/PurchaseHistoryService.class
 com/pharmacy/management/model/Suppliers.class
@@ -24,7 +28,9 @@ com/pharmacy/management/dao/SalesDAO.class
 com/pharmacy/management/dao/PurchaseHistoryDAO.class
 com/pharmacy/ui/PurchaseHistoryPanel.class
 com/pharmacy/ui/CustomersPanel.class
+com/pharmacy/ui/LoginPanel.class
 com/pharmacy/management/model/PurchaseHistory.class
+com/pharmacy/management/PharmacyApp$4.class
 com/pharmacy/management/service/SuppliersService.class
 com/pharmacy/management/model/Sales.class
 com/pharmacy/management/dao/DrugDAO.class

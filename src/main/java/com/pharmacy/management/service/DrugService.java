@@ -31,4 +31,9 @@ public class DrugService {
     public void deleteDrug(int drugId) {
         drugDAO.deleteDrug(drugId);
     }
+
+    public void addDrug(String name, int quantity, double price) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addDrug'");
+    }
 }

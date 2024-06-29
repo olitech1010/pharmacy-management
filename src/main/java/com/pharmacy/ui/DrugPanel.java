@@ -34,7 +34,7 @@ public class DrugPanel extends JPanel {
         add(drugQuantityField);
         add(priceLabel);
         add(drugPriceField);
-        add(new JLabel()); // Empty cell
+        add(new JLabel()); // Empty cell for layout alignment
         add(addButton);
 
         // Add action listener to the button

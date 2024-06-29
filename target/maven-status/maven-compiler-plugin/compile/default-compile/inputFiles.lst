@@ -1,23 +1,26 @@
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/App.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/PharmacyApp.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/dao/CustomersDAO.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/dao/DrugDAO.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/dao/PurchaseHistoryDAO.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/dao/SalesDAO.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/dao/SuppliersDAO.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/db/DatabaseConnection.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/model/Customers.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/model/Drug.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/model/PurchaseHistory.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/model/Sales.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/model/Suppliers.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/service/CustomersService.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/service/DrugService.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/service/PurchaseHistoryService.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/service/SalesService.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/management/service/SuppliersService.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/ui/CustomersPanel.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/ui/DrugPanel.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/ui/PurchaseHistoryPanel.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/ui/SalesPanel.java
-/Users/user/development/JAVA/pharmacy-management/src/main/java/com/pharmacy/ui/SuppliersPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/App.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/PharmacyApp.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/dao/CustomersDAO.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/dao/DrugDAO.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/dao/PurchaseHistoryDAO.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/dao/SalesDAO.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/dao/SuppliersDAO.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/db/DatabaseConnection.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/Customers.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/Drug.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/PurchaseHistory.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/Sales.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/Suppliers.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/model/User.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/CustomersService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/DrugService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/PurchaseHistoryService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/SalesService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/SuppliersService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/management/service/UserService.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/CustomersPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/DrugPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/LoginPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/PurchaseHistoryPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/SalesPanel.java
+/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/src/main/java/com/pharmacy/ui/SuppliersPanel.java

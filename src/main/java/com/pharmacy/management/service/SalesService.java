@@ -12,7 +12,14 @@ public class SalesService {
         this.salesDAO = new SalesDAO();
     }
 
-    public void addSale(Sales sale) {
+    public void addSale(int drugId, int customerId, java.sql.Date salesDate, int quantity, double amount) {
+        Sales sale = new Sales();
+        sale.setDrugId(drugId);
+        sale.setCustomerId(customerId);
+        sale.setSalesDate(salesDate);
+        sale.setQuantity(quantity);
+        sale.setAmount(amount);
+
         salesDAO.addSale(sale);
     }
 
@@ -28,3 +35,4 @@ public class SalesService {
         salesDAO.deleteSale(saleId);
     }
 }
+
