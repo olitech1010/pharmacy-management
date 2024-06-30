@@ -41,10 +41,12 @@ The goal of this project is to develop a comprehensive Pharmacy Management Syste
 4. **Service Classes:** Implemented business logic in service classes: `DrugService`, `CustomerService`, `SupplierService`, `SalesService`, and `PurchaseHistoryService`.
 5. **GUI Panels:** Created GUI panels for managing data: `DrugPanel`, `CustomerPanel`, `SupplierPanel`, `SalesPanel`, and `PurchaseHistoryPanel`.
 
-### Remaining Tasks:
+
 1. **Implement Main Application Class:** Create the main application class to run the project.
 2. **Balance Stock:** Implement logic to maintain the balance between too high and too low stock.
 3. **Generate Reports:** Develop functionality to generate reports on data structure implementation and sales/purchases.
+
+### Remaining Tasks:
 4. **View Reports:** Allow users to view generated reports.
 5. **Performance Analysis:** Analyze and report on the performance of algorithms using Big O Notation and Omega Notation.
 6. **Documentation:** Document all sections of the code for clarity and maintainability.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.pharmacy.management.AppTest" time="0.045" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.pharmacy.management.AppTest" time="0.042" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/22.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire/surefirebooter-20240629164342946_3.jar /Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire 2024-06-29T16-43-42_820-jvmRun1 surefire-20240629164342946_1tmp surefire_0-20240629164342946_2tmp"/>
+    <property name="sun.java.command" value="/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire/surefirebooter-20240630004414874_3.jar /Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire 2024-06-30T00-44-14_764-jvmRun1 surefire-20240630004414874_1tmp surefire_0-20240630004414874_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/test-classes:/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/classes:/Users/user/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/user/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/user/.m2/repository/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar:/Users/user/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire/surefirebooter-20240629164342946_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/Works/DOCUMENT/LEGON SCHOOL/L300 2ND SEM/DCIT 308/pharmacy-management/target/surefire/surefirebooter-20240630004414874_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="22.0.1"/>
