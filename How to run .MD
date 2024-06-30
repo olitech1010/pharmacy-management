@@ -1,4 +1,13 @@
 ### DCIT 308 GROUP 6
+1. Clement Mensah - 10975134
+2. Sharif Mohammed - 10952524
+3. Gabriel Daniels- 10965753
+4. Derrick Ofori Mensah - 10976765
+5. Martin Obeng Nti - 10966340
+6. 
+7.
+8.
+
 # Pharmacy Management System
 
 This is a Java-based Pharmacy Management System application that helps manage drug inventory, sales, customers, suppliers, and purchase history. The application uses a Swing-based user interface.
